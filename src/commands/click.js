@@ -38,14 +38,48 @@ module.exports = {
     }
 
     try {
-      // Attempt to click the button on the message
-      await msg.clickButton({ X: isNaN(buttonId) ? 0 : buttonId, Y: rowId });
+      // Check if the message has components (buttons)
+      if (!msg.components || msg.components.length === 0) {
+        return message.reply("This message doesn't have any buttons to click.");
+      }
+
+      // Find the button by position (row and button index)
+      let targetButton = null;
+
+      // If rowId is specified and valid, look in that specific row
+      if (rowId >= 0 && rowId < msg.components.length) {
+        const row = msg.components[rowId];
+        if (buttonId >= 0 && buttonId < row.components.length) {
+          targetButton = row.components[buttonId];
+        }
+      } else {
+        // If no specific row, find the button by counting through all rows
+        let currentIndex = 0;
+        for (const row of msg.components) {
+          for (const component of row.components) {
+            if (currentIndex === buttonId) {
+              targetButton = component;
+              break;
+            }
+            currentIndex++;
+          }
+          if (targetButton) break;
+        }
+      }
+
+      if (!targetButton || !targetButton.customId) {
+        return message.reply("Button not found at the specified position.");
+      }
+
+      // Attempt to click the button using its custom_id
+      await msg.clickButton(targetButton.customId);
       // React with a checkmark emoji to indicate success
       message.react("✅");
     } catch (err) {
       // Log any errors and react with an X emoji to indicate failure
       console.error(err);
       message.react("❌");
+      message.reply(`Failed to click button: ${err.message}`);
     }
   },
 };
