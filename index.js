@@ -292,6 +292,9 @@ async function Login(token, Client, guildId) {
         message?.author.id == "716390085896962058" &&
         !config.blacklistedGuilds.includes(message.guild?.id))
     ) {
+      if (message.reference) {
+        referenceMessage = await message.channel.messages.fetch(message.reference.messageId);
+      }
       const messages = await message.channel.messages
         .fetch({ limit: 2, around: message.id })
         .catch(() => null);
@@ -421,9 +424,7 @@ async function Login(token, Client, guildId) {
       } else if (
         message.embeds[0]?.footer &&
         message.embeds[0].footer.text.includes("Displaying") &&
-        (message.embeds[0].thumbnail.url.includes(client.user.id) ||
-          newMessage[1]?.author.id == client.user.id) &&
-        newMessage[1]?.content.includes("i l")
+        referenceMessage.author.id == client.user.id && referenceMessage.content.includes("i l")
       ) {
         const str = message.embeds[0]?.fields[1].value;
         const words = str.split(" ");
