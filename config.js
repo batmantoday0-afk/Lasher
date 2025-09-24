@@ -5,7 +5,7 @@ const config = {
     AI: true, // Enable or disable AI behavior
     Sleeping: false, // Enable or disable sleeping behavior
     Catching: true, // Enable or disable catching behavior (CURRENTLY GLOBAL)
-    Spamming: true // Enable or disable spamming behavior (CURRENTLY GLOBAL)
+    Spamming: false // Enable or disable spamming behavior (CURRENTLY GLOBAL)
   },
   // Incense settings
   incense: {
@@ -22,7 +22,7 @@ const config = {
     LogCatches: true, // Enable or disable logging of catches
     LowIVThreshold: 15.00, // Threshold for low IV logging
     HighIVThreshold: 85.00, // Threshold for high IV logging
-    LogWebhook: "Webhook" // Webhook URL for logging
+    LogWebhook: "https://discord.com/api/webhooks/1408783651784753152/_2VzlL87VoDQDk6g7XOzDDRPIRtHIxx-YIw8Mz0wqk-q0TcL6VbnAB2nslhQ6Tn4KkFI" // Webhook URL for logging
   },
   // Ownership settings
   ownership: {
