@@ -40,9 +40,8 @@ const config = {
     HuntToken: "HuntToken" // Token for hunting
   },
   captchaSolving: {
-    key: "", // CatchTwo Captchasolving API key, leave empty to disable, can be bought at @meneerplee or at https://catchtwo.online/captchasolver
+    key: process.env.CAPTCHA_API_KEY || "", // Reads the key from Render's environment
   },
-  // Debug mode
   debug: true // Enable or disable debug mode
 };
 
