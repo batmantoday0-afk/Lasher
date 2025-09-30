@@ -22,11 +22,11 @@ const config = {
     LogCatches: true, // Enable or disable logging of catches
     LowIVThreshold: 15.00, // Threshold for low IV logging
     HighIVThreshold: 85.00, // Threshold for high IV logging
-    LogWebhook: "https://discord.com/api/webhooks/1408783651784753152/_2VzlL87VoDQDk6g7XOzDDRPIRtHIxx-YIw8Mz0wqk-q0TcL6VbnAB2nslhQ6Tn4KkFI" // Webhook URL for logging
+    LogWebhook: "" // Webhook URL for logging
   },
   // Ownership settings
   ownership: {
-    OwnerIDs: ["1101294362505269379", "..."], // List of owner IDs
+    OwnerIDs: ["", "..."], // List of owner IDs
     CommandPrefix: "!" // Prefix for commands
   },
   // Global settings
