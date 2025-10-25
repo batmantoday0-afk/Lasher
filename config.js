@@ -2,7 +2,7 @@
 const config = {
   // Behavior settings
   behavior: {
-    AI: false, // Enable or disable AI behavior
+    AI: true, // Enable or disable AI behavior
     Sleeping: false, // Enable or disable sleeping behavior
     Catching: true, // Enable or disable catching behavior (CURRENTLY GLOBAL)
     Spamming: false // Enable or disable spamming behavior (CURRENTLY GLOBAL)
