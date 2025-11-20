@@ -22,7 +22,7 @@
     "figlet": "^1.8.0",
     "fs-extra": "^11.2.0",
     "gradient-string": "^3.0.0",
-    "pokehint": "^1.4.13",
+    "pokehint": "^1.4.23",
     "sharp": "^0.33.5"
   }
 }
